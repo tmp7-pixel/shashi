@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DO NOT PRESS THE BUTTON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Montserrat:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background elements -->
+  <div id="vignette"></div>
+  <div id="glitch-overlay"></div>
+  <div id="alarm-flash"></div>
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Main Container -->
+  <main id="app">
+    <!-- Header HUD -->
+    <header class="hud-header">
+      <div class="hud-panel danger-level-box">
+        <span class="hud-label">DEFCON / THREAT LEVEL</span>
+        <span id="threat-tier" class="hud-value neon-green">STAGE 0: NORMAL</span>
+      </div>
+
+      <div class="hud-panel status-box">
+        <span class="hud-label">CLICK COUNT</span>
+        <span id="press-counter" class="hud-value neon-amber">0</span>
+      </div>
+
+      <div class="hud-panel sound-toggle-box">
+        <button id="sound-btn" class="hud-btn" title="Toggle Sound Synth">
+          <span id="sound-icon">🔊</span> SOUND: <span id="sound-state">ON</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Threat / Dialogue Box -->
+    <section class="dialogue-container">
+      <div class="dialogue-box glow-card">
+        <div class="speaker-tag" id="speaker-tag">SYSTEM NOTICE</div>
+        <div class="threat-text" id="threat-text">Whatever you do, DO NOT click that tempting red button.</div>
+        <div class="sub-threat" id="sub-threat">We mean it. Just close the tab and walk away peacefully.</div>
+      </div>
+    </section>
+
+    <!-- Button Escalator Stage -->
+    <section class="stage" id="stage">
+      <div class="pedestal" id="pedestal">
+        <div class="hazard-stripes"></div>
+        <button id="escalator-button" class="giant-button" type="button" aria-label="Do Not Press">
+          <div class="button-surface">
+            <span class="btn-shine"></span>
+            <span class="btn-text" id="button-label">DO NOT PRESS</span>
+            <span class="btn-subtext" id="button-sublabel">RESTRICTED AREA</span>
+          </div>
+          <div class="button-shadow"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Environmental / Warning ticker -->
+    <footer class="hud-footer">
+      <div class="ticker-wrap">
+        <div class="ticker-move" id="ticker-text">
+          ⚠️ WARNING: HAZARDOUS PROTOCOL LOADED • UNAUTHORIZED INTERACTION PUNISHABLE BY REALITY DEREGISTRATION • DO NOT TOUCH •
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Chaos Overlays: Popups, Blue Screen, Fake Captchas, Reality Collapse -->
+  <div id="chaos-container"></div>
+
+  <!-- End Game Modal (for Reset / Post-Apocalyptic Restart) -->
+  <div id="game-over-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h1 class="apocalypse-title" id="modal-title">REALITY PURGED</h1>
+      <p id="modal-desc">You pressed it 25 times despite every universe-ending warning. The universe collapsed.</p>
+      <div class="stats-recap" id="stats-recap">Clicks: 25 | Threat: Cataclysmic</div>
+      <button id="reboot-btn" class="reboot-btn">REBOOT REALITY</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
